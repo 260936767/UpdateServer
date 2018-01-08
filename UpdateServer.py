@@ -44,11 +44,10 @@ if __name__ == '__main__':
     print("")
     print("finding serial com ... ")
 
-    # app.launch(MainView, 'browser')
-    # app.run()
+    # app.launch(MainView, 'app')
+    app.launch(MainView,"chrome-app")
+    app.run()
 
-    app.serve(MainView)
-    app.start()
 
     '''
     udr = uart.UartDriver()

@@ -1,24 +1,15 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time    : 2018/1/3 14:56
-# @Author  : yc
-# @Site    : 
-# @File    : 01_layout.py
-# @Software: PyCharm
+from flexx import app, ui, event
 
-from flexx import ui,app,event
-
-
-class Ex(ui.Widget):
+class Example(ui.Widget):
     def init(self):
         self.layout = ui.PlotLayout()
-        self.slider1 = ui.Slider(min = 999,max = 100,value = 1009)
+        self.slider1 = ui.Slider(min=1, max=2, value=1)
         self.slider2 = ui.Slider(min=3, max=10, value=3)
-        self.progress = ui.ProgressBar(max = 99,value = 9)
+        self.progress = ui.ProgressBar(max=100, value=0)
         self.layout.add_tools('Edit plot',
-                              ui.Label(text='exponent'), self.slider1,
-                              ui.Label(text='numel'), self.slider2,
-                              )
+                            ui.Label(text='exponent'), self.slider1,
+                            ui.Label(text='numel'), self.slider2,
+                            )
         self.layout.add_tools('Plot info', ui.Label(text='Maximum'), self.progress)
 
     class JS:
@@ -36,5 +27,6 @@ class Ex(ui.Widget):
             if yy:
                 self.progress.value = max(yy)
 
-app.launch(Ex)
-app.run()
+if __name__ == "__main__":
+    app.launch(Example)
+    app.run()
